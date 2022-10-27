@@ -26,15 +26,26 @@ function App() {
     });
   };
 
-  // const calculateTipAmount = () => {};
+  const calculateTipAmount = (bill, tip, numOfPeople) => {
+    const fixedTip = tip / 100;
+    const totalTip = bill * fixedTip;
+    return totalTip / numOfPeople;
+  };
+
   const calculateTotal = (bill, tip, numOfPeople) => {
     const fixedTip = tip / 100;
-    const billPlusTip = (bill *= fixedTip);
+    // To escape from string concenation, bill parameter turn into a number
+    const billPlusTip = bill * fixedTip + Number(bill);
     return billPlusTip / numOfPeople;
   };
 
   useEffect(() => {
     console.log(enteredData);
+    const { bill, selectedTip, numOfPeople } = enteredData;
+    if (bill !== 0 && selectedTip !== 0 && numOfPeople !== 0) {
+      console.log(calculateTotal(bill, selectedTip, numOfPeople));
+      console.log(calculateTipAmount(bill, selectedTip, numOfPeople));
+    }
   });
 
   return (
