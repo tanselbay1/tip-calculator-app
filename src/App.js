@@ -9,9 +9,20 @@ function App() {
   });
 
   const changeBill = (enteredBill) => {
-    console.log(enteredBill);
     setEnteredData((previousData) => {
       return { ...previousData, bill: enteredBill };
+    });
+  };
+
+  const changeNumOfPeople = (enteredPeople) => {
+    setEnteredData((previousData) => {
+      return { ...previousData, numOfPeople: enteredPeople };
+    });
+  };
+
+  const changeTip = (enteredTip) => {
+    setEnteredData((previousData) => {
+      return { ...previousData, selectedTip: enteredTip };
     });
   };
 
@@ -33,7 +44,12 @@ function App() {
         <br />
         TTER
       </h1>
-      <Form onBillChange={changeBill} formData={enteredData} />
+      <Form
+        onBillChange={changeBill}
+        onNumOfPeopleChange={changeNumOfPeople}
+        onTipChange={changeTip}
+        formData={enteredData}
+      />
     </div>
   );
 }
