@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Form from "./components/Form";
+import Result from "./components/Result";
 
 function App() {
   const [enteredData, setEnteredData] = useState({
@@ -55,12 +56,15 @@ function App() {
         <br />
         TTER
       </h1>
-      <Form
-        onBillChange={changeBill}
-        onNumOfPeopleChange={changeNumOfPeople}
-        onTipChange={changeTip}
-        formData={enteredData}
-      />
+      <div className="card">
+        <Form
+          onBillChange={changeBill}
+          onNumOfPeopleChange={changeNumOfPeople}
+          onTipChange={changeTip}
+          formData={enteredData}
+        />
+        <Result />
+      </div>
     </div>
   );
 }
