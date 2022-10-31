@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Form from "./components/Form";
 import Result from "./components/Result";
 
@@ -8,6 +8,22 @@ function App() {
     selectedTip: "",
     numOfPeople: "",
   });
+  const [calculatedTip, setCalculatedTip] = useState("$0.00");
+  const [calculatedTotal, setCalculatedTotal] = useState("$0.00");
+  const isMounted = useRef(false);
+
+  const calculateTipAmount = (bill, tip, numOfPeople) => {
+    const fixedTip = tip / 100;
+    const totalTip = bill * fixedTip;
+    return totalTip / numOfPeople;
+  };
+
+  const calculateTotal = (bill, tip, numOfPeople) => {
+    const fixedTip = tip / 100;
+    // To escape from string concenation, bill parameter turn into a number
+    const billPlusTip = bill * fixedTip + Number(bill);
+    return billPlusTip / numOfPeople;
+  };
 
   const changeBill = (enteredBill) => {
     setEnteredData((previousData) => {
@@ -27,27 +43,20 @@ function App() {
     });
   };
 
-  const calculateTipAmount = (bill, tip, numOfPeople) => {
-    const fixedTip = tip / 100;
-    const totalTip = bill * fixedTip;
-    return totalTip / numOfPeople;
-  };
-
-  const calculateTotal = (bill, tip, numOfPeople) => {
-    const fixedTip = tip / 100;
-    // To escape from string concenation, bill parameter turn into a number
-    const billPlusTip = bill * fixedTip + Number(bill);
-    return billPlusTip / numOfPeople;
-  };
-
   useEffect(() => {
-    console.log(enteredData);
     const { bill, selectedTip, numOfPeople } = enteredData;
-    if (bill !== 0 && selectedTip !== 0 && numOfPeople !== 0) {
-      console.log(calculateTotal(bill, selectedTip, numOfPeople));
-      console.log(calculateTipAmount(bill, selectedTip, numOfPeople));
+
+    // Prevent first render of useEffect
+    if (isMounted.current) {
+      // Escaping empty inputs
+      if (bill !== "" && selectedTip !== "" && numOfPeople !== "") {
+        setCalculatedTip(calculateTipAmount(bill, selectedTip, numOfPeople));
+        setCalculatedTotal(calculateTotal(bill, selectedTip, numOfPeople));
+      }
+    } else {
+      isMounted.current = true;
     }
-  });
+  }, [enteredData, calculatedTip, calculatedTotal]);
 
   return (
     <div>
@@ -63,7 +72,7 @@ function App() {
           onTipChange={changeTip}
           formData={enteredData}
         />
-        <Result />
+        <Result tipAmount={calculatedTip} totalAmount={calculatedTotal} />
       </div>
     </div>
   );
