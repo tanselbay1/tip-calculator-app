@@ -13,16 +13,18 @@ function App() {
   const isMounted = useRef(false);
 
   const calculateTipAmount = (bill, tip, numOfPeople) => {
-    const fixedTip = tip / 100;
-    const totalTip = bill * fixedTip;
-    return totalTip / numOfPeople;
+    const percentageTip = tip / 100;
+    const totalTip = bill * percentageTip;
+    const fixedAmount = (totalTip / numOfPeople).toFixed(2);
+    return fixedAmount;
   };
 
   const calculateTotal = (bill, tip, numOfPeople) => {
-    const fixedTip = tip / 100;
+    const percentageTip = tip / 100;
     // To escape from string concenation, bill parameter turn into a number
-    const billPlusTip = bill * fixedTip + Number(bill);
-    return billPlusTip / numOfPeople;
+    const billPlusTip = bill * percentageTip + Number(bill);
+    const fixedTotal = (billPlusTip / numOfPeople).toFixed(2);
+    return fixedTotal;
   };
 
   const changeBill = (enteredBill) => {
@@ -41,6 +43,16 @@ function App() {
     setEnteredData((previousData) => {
       return { ...previousData, selectedTip: enteredTip };
     });
+  };
+
+  const handleReset = () => {
+    setEnteredData({
+      bill: "",
+      selectedTip: "",
+      numOfPeople: "",
+    });
+    setCalculatedTip("0.00");
+    setCalculatedTotal("0.00");
   };
 
   useEffect(() => {
@@ -72,7 +84,11 @@ function App() {
           onTipChange={changeTip}
           formData={enteredData}
         />
-        <Result tipAmount={calculatedTip} totalAmount={calculatedTotal} />
+        <Result
+          tipAmount={calculatedTip}
+          totalAmount={calculatedTotal}
+          onReset={handleReset}
+        />
       </div>
     </div>
   );

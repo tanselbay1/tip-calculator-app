@@ -22,7 +22,7 @@ const Form = (props) => {
           type="text"
           name="bill"
           id="bill"
-          placeholder="$"
+          placeholder="0"
           onChange={changeBill}
           value={bill}
         />
@@ -84,6 +84,7 @@ const Form = (props) => {
             id="numOfPeople"
             onChange={changeNumOfPeople}
             value={numOfPeople}
+            placeholder="0"
           />
         </div>
       </div>
