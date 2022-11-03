@@ -1,0 +1,11 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+
+.card {
+  @include flex(column, center);
+  background-color: $white;
+  width: 100%;
+  padding: 1.37rem 1.5rem;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}

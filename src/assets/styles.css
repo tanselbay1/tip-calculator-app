@@ -1,0 +1,215 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap"); /* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default padding */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Natural flow and rhythm in articles by default */
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    -webkit-animation-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: hsl(0deg, 0%, 100%);
+  width: 100%;
+  padding: 1.37rem 1.5rem;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+form {
+  color: hsl(186deg, 14%, 43%);
+}
+form h3 {
+  font-size: 0.65rem;
+  margin-bottom: 0.37rem;
+}
+form .bill input {
+  background: url("./images/icon-dollar.svg");
+  background-color: hsl(189deg, 41%, 97%);
+  background-position: 4% 50%;
+  background-repeat: no-repeat;
+  border-radius: 5px;
+  border: none;
+  color: hsl(183deg, 100%, 15%);
+  padding: 0.235rem 0.5rem;
+  text-align: right;
+  width: 100%;
+}
+form .bill input::-moz-placeholder {
+  color: hsl(183deg, 100%, 15%);
+}
+form .bill input:-ms-input-placeholder {
+  color: hsl(183deg, 100%, 15%);
+}
+form .bill input::placeholder {
+  color: hsl(183deg, 100%, 15%);
+}
+form .select-tip h3 {
+  margin-top: 1.2rem;
+  margin-bottom: 0.6rem;
+}
+form .select-tip input {
+  background: url("./images/icon-dollar.svg");
+  background-color: hsl(189deg, 41%, 97%);
+  background-position: 4% 50%;
+  background-repeat: no-repeat;
+  border-radius: 5px;
+  border: none;
+  color: hsl(183deg, 100%, 15%);
+  padding: 0.235rem 0.5rem;
+  text-align: right;
+  width: 100%;
+  background-image: none;
+}
+form .select-tip input::-moz-placeholder {
+  color: hsl(183deg, 100%, 15%);
+}
+form .select-tip input:-ms-input-placeholder {
+  color: hsl(183deg, 100%, 15%);
+}
+form .select-tip input::placeholder {
+  color: hsl(183deg, 100%, 15%);
+}
+form .select-tip input::-moz-placeholder {
+  color: hsl(186deg, 14%, 43%);
+}
+form .select-tip input:-ms-input-placeholder {
+  color: hsl(186deg, 14%, 43%);
+}
+form .select-tip input::placeholder {
+  color: hsl(186deg, 14%, 43%);
+}
+form .select-tip button.select-tip__percentage {
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(183deg, 100%, 15%);
+  border: none;
+  border-radius: 5px;
+}
+form .select-tip .tip-wrapper {
+  display: grid;
+  grid-template-columns: minmax(6rem, 1fr) minmax(6rem, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 0.7rem;
+}
+form .select-tip input,
+form .select-tip button {
+  max-width: 8rem;
+}
+form .num-of-people h3 {
+  margin-top: 1.3rem;
+}
+form .num-of-people input {
+  background: url("./images/icon-person.svg");
+  background-color: hsl(189deg, 41%, 97%);
+  background-position: 4% 50%;
+  background-repeat: no-repeat;
+  border-radius: 5px;
+  border: none;
+  color: hsl(183deg, 100%, 15%);
+  padding: 0.235rem 0.5rem;
+  text-align: right;
+  width: 100%;
+}
+form .num-of-people input::-moz-placeholder {
+  color: hsl(183deg, 100%, 15%);
+}
+form .num-of-people input:-ms-input-placeholder {
+  color: hsl(183deg, 100%, 15%);
+}
+form .num-of-people input::placeholder {
+  color: hsl(183deg, 100%, 15%);
+}
+form .error-message {
+  display: none;
+}
+
+* {
+  font-size: 24px;
+}
+
+body {
+  background-color: hsl(185deg, 41%, 84%);
+  font-family: "Space Mono", monospace;
+}
+
+.app {
+  width: 100%;
+}
+.app h1 {
+  text-align: center;
+  margin: 1.9rem auto 1.4rem;
+}/*# sourceMappingURL=styles.css.map */

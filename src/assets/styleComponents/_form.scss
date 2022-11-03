@@ -1,0 +1,65 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+
+form {
+  color: $dark-grayish-cyan;
+
+  h3 {
+    font-size: 0.65rem;
+    margin-bottom: 0.37rem;
+  }
+
+  .bill {
+    input {
+      @include formInput("./images/icon-dollar.svg");
+    }
+  }
+
+  .select-tip {
+    h3 {
+      margin-top: 1.2rem;
+      margin-bottom: 0.6rem;
+    }
+
+    input {
+      @include formInput("./images/icon-dollar.svg");
+      background-image: none;
+      &::placeholder {
+        color: $dark-grayish-cyan;
+      }
+    }
+
+    button.select-tip__percentage {
+      color: $white;
+      background-color: $very-dark-cyan;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .tip-wrapper {
+      display: grid;
+      grid-template-columns: minmax(6rem, 1fr) minmax(6rem, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 0.7rem;
+    }
+
+    input,
+    button {
+      max-width: 8rem;
+    }
+  }
+
+  .num-of-people {
+    h3 {
+      margin-top: 1.3rem;
+    }
+
+    input {
+      @include formInput("./images/icon-person.svg");
+    }
+  }
+
+  .error-message {
+    display: none;
+  }
+}

@@ -22,71 +22,73 @@ const Form = (props) => {
           type="text"
           name="bill"
           id="bill"
-          placeholder="0"
           onChange={changeBill}
           value={bill}
+          placeholder={0}
         />
       </div>
       <div className="select-tip">
         <h3 className="section-header">Select Tip %</h3>
-        <button
-          className="select-tip__percentage"
-          value={5}
-          onClick={changeTip}
-        >
-          5%
-        </button>
-        <button
-          className="select-tip__percentage"
-          value={10}
-          onClick={changeTip}
-        >
-          10%
-        </button>
-        <button
-          className="select-tip__percentage"
-          value={15}
-          onClick={changeTip}
-        >
-          15%
-        </button>
-        <button
-          className="select-tip__percentage"
-          value={25}
-          onClick={changeTip}
-        >
-          25%
-        </button>
-        <button
-          className="select-tip__percentage"
-          value={50}
-          onClick={changeTip}
-        >
-          50%
-        </button>
-        <div className="select-tip__percentage">
-          <input
-            type="text"
-            placeholder="Custom"
-            id="custom-percentage"
-            onChange={changeTip}
-            value={selectedTip}
-          />
+        <div className="tip-wrapper">
+          <button
+            className="select-tip__percentage"
+            value={5}
+            onClick={changeTip}
+          >
+            5%
+          </button>
+          <button
+            className="select-tip__percentage"
+            value={10}
+            onClick={changeTip}
+          >
+            10%
+          </button>
+          <button
+            className="select-tip__percentage"
+            value={15}
+            onClick={changeTip}
+          >
+            15%
+          </button>
+          <button
+            className="select-tip__percentage"
+            value={25}
+            onClick={changeTip}
+          >
+            25%
+          </button>
+          <button
+            className="select-tip__percentage"
+            value={50}
+            onClick={changeTip}
+          >
+            50%
+          </button>
+          <div className="select-tip__percentage">
+            <input
+              type="text"
+              placeholder="Custom"
+              id="custom-percentage"
+              onChange={changeTip}
+              value={selectedTip}
+            />
+          </div>
         </div>
-        <div className="numOfPeople">
-          <label htmlFor="numOfPeople">
-            <h3 className="section-header">Number of People</h3>
-            {!numOfPeople && <span>Can't be zero</span>}
-          </label>
-          <input
-            type="text"
-            name="numOfPeople"
-            id="numOfPeople"
-            onChange={changeNumOfPeople}
-            value={numOfPeople}
-            placeholder="0"
-          />
-        </div>
+      </div>
+      <div className="num-of-people">
+        <label htmlFor="num-of-people">
+          <h3 className="section-header">Number of People</h3>
+          {!numOfPeople && <span className="error-message">Can't be zero</span>}
+        </label>
+        <input
+          type="text"
+          name="num-of-people"
+          id="num-of-people"
+          onChange={changeNumOfPeople}
+          value={numOfPeople}
+          placeholder={0}
+        />
       </div>
     </form>
   );

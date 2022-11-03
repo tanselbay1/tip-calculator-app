@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import Form from "./components/Form";
 import Result from "./components/Result";
+import "./assets/styles.css";
+import { ReactComponent as Logo } from "./assets/images/logo.svg";
 
 function App() {
   const [enteredData, setEnteredData] = useState({
@@ -71,11 +73,9 @@ function App() {
   }, [enteredData, calculatedTip, calculatedTotal]);
 
   return (
-    <div>
+    <div className="app">
       <h1>
-        SPLI
-        <br />
-        TTER
+        <Logo />
       </h1>
       <div className="card">
         <Form
