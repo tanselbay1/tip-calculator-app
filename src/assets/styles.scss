@@ -2,6 +2,7 @@
 @use "./styleComponents/variables" as *;
 @use "./styleComponents/card";
 @use "./styleComponents/form";
+@use "./styleComponents/result";
 
 * {
   font-size: $font-size-inputs;

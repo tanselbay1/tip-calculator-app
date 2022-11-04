@@ -10,8 +10,8 @@ function App() {
     selectedTip: "",
     numOfPeople: "",
   });
-  const [calculatedTip, setCalculatedTip] = useState("$0.00");
-  const [calculatedTotal, setCalculatedTotal] = useState("$0.00");
+  const [calculatedTip, setCalculatedTip] = useState("0.00");
+  const [calculatedTotal, setCalculatedTotal] = useState("0.00");
   const isMounted = useRef(false);
 
   const calculateTipAmount = (bill, tip, numOfPeople) => {
