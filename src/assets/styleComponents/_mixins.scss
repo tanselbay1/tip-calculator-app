@@ -21,3 +21,24 @@
     color: $very-dark-cyan;
   }
 }
+
+@mixin button() {
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  transition: 0.3s all;
+}
+
+// Media Queries
+
+@mixin medium {
+  @media (min-width: 480px) {
+    @content;
+  }
+}
+
+@mixin large {
+  @media (min-width: 768px) {
+    @content;
+  }
+}

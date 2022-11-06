@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useLayoutEffect, useRef } from "react";
 import Form from "./components/Form";
 import Result from "./components/Result";
 import "./assets/styles.css";
@@ -12,7 +12,9 @@ function App() {
   });
   const [calculatedTip, setCalculatedTip] = useState("0.00");
   const [calculatedTotal, setCalculatedTotal] = useState("0.00");
+  const [isTyping, setIsTyping] = useState(false);
   const isMounted = useRef(false);
+  const { bill, selectedTip, numOfPeople } = enteredData;
 
   const calculateTipAmount = (bill, tip, numOfPeople) => {
     const percentageTip = tip / 100;
@@ -57,20 +59,31 @@ function App() {
     setCalculatedTotal("0.00");
   };
 
-  useEffect(() => {
-    const { bill, selectedTip, numOfPeople } = enteredData;
+  useLayoutEffect(() => {
+    if (bill || selectedTip || numOfPeople) {
+      setIsTyping(true);
+      return;
+    }
+    setIsTyping(false);
+  }, [bill, selectedTip, numOfPeople, isTyping]);
 
+  useEffect(() => {
     // Prevent first render of useEffect
     if (isMounted.current) {
-      // Escaping empty inputs
-      if (bill !== "" && selectedTip !== "" && numOfPeople !== "") {
+      // Escaping empty inputs and preventing numOfPeople being 0 and below
+      if (
+        bill !== "" &&
+        selectedTip !== "" &&
+        numOfPeople !== "" &&
+        numOfPeople > 0
+      ) {
         setCalculatedTip(calculateTipAmount(bill, selectedTip, numOfPeople));
         setCalculatedTotal(calculateTotal(bill, selectedTip, numOfPeople));
       }
     } else {
       isMounted.current = true;
     }
-  }, [enteredData, calculatedTip, calculatedTotal]);
+  }, [bill, selectedTip, numOfPeople]);
 
   return (
     <div className="app">
@@ -88,6 +101,7 @@ function App() {
           tipAmount={calculatedTip}
           totalAmount={calculatedTotal}
           onReset={handleReset}
+          isTyping={isTyping}
         />
       </div>
     </div>

@@ -9,6 +9,13 @@ form {
     margin-bottom: 0.37rem;
   }
 
+  input {
+    cursor: pointer;
+    &:focus {
+      outline-color: $strong-cyan;
+    }
+  }
+
   .bill {
     input {
       @include formInput("./images/icon-dollar.svg");
@@ -30,10 +37,13 @@ form {
     }
 
     button.select-tip__percentage {
+      @include button();
       color: $white;
       background-color: $very-dark-cyan;
-      border: none;
-      border-radius: 5px;
+      &:hover {
+        color: $very-dark-cyan;
+        background-color: $strong-cyan;
+      }
     }
 
     .tip-wrapper {
@@ -52,6 +62,7 @@ form {
   .num-of-people {
     h3 {
       margin-top: 1.3rem;
+      position: relative;
     }
 
     input {
@@ -60,6 +71,10 @@ form {
   }
 
   .error-message {
-    display: none;
+    color: rgba(228, 72, 67, 0.932);
+    font-size: 0.7rem;
+    position: absolute;
+    right: 0;
+    z-index: 1;
   }
 }

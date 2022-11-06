@@ -78,8 +78,12 @@ const Form = (props) => {
       </div>
       <div className="num-of-people">
         <label htmlFor="num-of-people">
-          <h3 className="section-header">Number of People</h3>
-          {!numOfPeople && <span className="error-message">Can't be zero</span>}
+          <h3 className="section-header">
+            Number of People
+            {numOfPeople && numOfPeople <= 0 && (
+              <span className="error-message">Can't be zero</span>
+            )}
+          </h3>
         </label>
         <input
           type="text"

@@ -1,4 +1,4 @@
-const Result = ({ tipAmount, totalAmount, onReset }) => {
+const Result = ({ tipAmount, totalAmount, onReset, isTyping }) => {
   return (
     <div className="result">
       <div className="tip-amount">
@@ -16,7 +16,11 @@ const Result = ({ tipAmount, totalAmount, onReset }) => {
         </div>
         <p className="amount__usd">${totalAmount}</p>
       </div>
-      <button type="reset" onClick={onReset}>
+      <button
+        type="reset"
+        onClick={onReset}
+        className={isTyping ? "typing" : null}
+      >
         RESET
       </button>
     </div>
