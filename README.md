@@ -24,10 +24,12 @@ Users should be able to:
 - Calculate the correct tip and total cost of the bill per person
 
 ### Screenshot
-
-![](../design/mobile-design.jpg)
-
-![](../design/desktop-design-empty.jpg)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/58618654/200259846-d2b3f68a-fdd4-47e7-8bd8-d44538152497.jpeg" />
+</p>
+<p align="center">
+   <img src="https://user-images.githubusercontent.com/58618654/200259714-9e13180e-e9f9-4649-a165-6726f2e48e96.jpeg" />
+</p>
 
 ### Links
 
