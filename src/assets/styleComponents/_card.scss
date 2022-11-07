@@ -8,4 +8,11 @@
   padding: 1.37rem 1.5rem;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+
+  @include large {
+    @include flex(row, stretch);
+    width: 38rem;
+    border-radius: 20px;
+    gap: 1.5rem;
+  }
 }

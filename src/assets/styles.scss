@@ -1,11 +1,18 @@
 @use "./styleComponents/reset";
 @use "./styleComponents/variables" as *;
+@use "./styleComponents/mixins" as *;
 @use "./styleComponents/card";
 @use "./styleComponents/form";
 @use "./styleComponents/result";
 
 * {
-  font-size: $font-size-inputs;
+  font-size: $font-size-mobile;
+  @include large {
+    font-size: $font-size-large;
+  }
+  @include xlarge {
+    font-size: $font-size-xlarge;
+  }
 }
 
 body {
@@ -15,9 +22,15 @@ body {
 
 .app {
   width: 100%;
+  height: 100vh;
+  @include flex(column, center);
+  justify-content: center;
 
   h1 {
     text-align: center;
     margin: 1.9rem auto 1.4rem;
+    @include large {
+      margin: 0 0 2.2rem;
+    }
   }
 }

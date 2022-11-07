@@ -31,14 +31,14 @@
 
 // Media Queries
 
-@mixin medium {
-  @media (min-width: 480px) {
+@mixin large {
+  @media (min-width: 768px) {
     @content;
   }
 }
 
-@mixin large {
-  @media (min-width: 768px) {
+@mixin xlarge {
+  @media (min-width: 1024px) {
     @content;
   }
 }
