@@ -33,8 +33,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/tanselbay1/tip-calculator-app)
-- Live Site URL: [Add live site URL here](https://lucky-duckanoo-88319d.netlify.app)
+- Solution URL: [Github](https://github.com/tanselbay1/tip-calculator-app)
+- Live Site URL: [Netlify](https://lucky-duckanoo-88319d.netlify.app)
 
 ## My process
 
